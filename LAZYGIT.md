@@ -1,11 +1,11 @@
-##Instalation:
+## Instalation:
  `brew install lazygit`
 
-
-##Configuration:
-
+## Configuration:
 ~/Library/Application\ Support/lazygit/config.yml: 
-`os:
+
+```yaml
+os:
     editCommand: 'floaterm'
 
   gui:
@@ -18,9 +18,8 @@
   git:
     paging:
       colorArg: never
-      pager: delta --dark --paging=never --line-numbers --side-by-side`
+      pager: delta --dark --paging=never --line-numbers --side-by-side
+```
 
-##Delta installation
-
+## Delta installation
 `brew install git-delta`
-
