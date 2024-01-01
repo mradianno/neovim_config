@@ -3,15 +3,16 @@ require("mason").setup()
 require("mason-lspconfig").setup({ensure_installed = {
   "lua_ls","tsserver","cssls","eslint","grammarly","html","jdtls"
 }})
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup({})
-lspconfig.tsserver.setup({})
-lspconfig.cssls.setup({})
-lspconfig.eslint.setup({})
-lspconfig.grammarly.setup({})
-lspconfig.html.setup({})
-lspconfig.jdtls.setup({})
+lspconfig.lua_ls.setup({capabilities=capabilities})
+lspconfig.tsserver.setup({capabilities=capabilities})
+lspconfig.cssls.setup({capabilities=capabilities})
+lspconfig.eslint.setup({capabilities=capabilities})
+lspconfig.grammarly.setup({capabilities=capabilities})
+lspconfig.html.setup({capabilities=capabilities})
+lspconfig.jdtls.setup({capabilities=capabilities})
 
 --keymaps
 vim.keymap.set('n','K', vim.lsp.buf.hover, {})
