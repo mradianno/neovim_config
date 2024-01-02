@@ -6,4 +6,4 @@ require("core.plugin_config.telescope")
 require("core.plugin_config.lsp-config")
 require("core.plugin_config.telescope-ui-select")
 require("core.plugin_config.cmp-config")
-
+require("core.plugin_config.none-ls")

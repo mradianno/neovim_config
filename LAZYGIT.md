@@ -1,8 +1,10 @@
-## Instalation:
- `brew install lazygit`
+## Installation:
+
+`brew install lazygit`
 
 ## Configuration:
-~/Library/Application\ Support/lazygit/config.yml: 
+
+~/Library/Application\ Support/lazygit/config.yml:
 
 ```yaml
 os:
@@ -22,4 +24,5 @@ os:
 ```
 
 ## Delta installation
+
 `brew install git-delta`
