@@ -40,6 +40,8 @@ return require("packer").startup(function(use)
 	})
 	use("hrsh7th/cmp-nvim-lsp")
 
+	use('akinsho/toggleterm.nvim')
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
