@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
 		"jdtls",
 	},
 })
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")

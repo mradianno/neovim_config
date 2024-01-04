@@ -11,7 +11,8 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require("packer").startup(function(use)
+local packer = require("packer")
+packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("ellisonleao/gruvbox.nvim")
 	use("nvim-tree/nvim-tree.lua")
@@ -40,9 +41,23 @@ return require("packer").startup(function(use)
 	})
 	use("hrsh7th/cmp-nvim-lsp")
 
-	use('akinsho/toggleterm.nvim')
+	use("akinsho/toggleterm.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
+	else
+		require("core.plugin_config")
 	end
 end)
+
+packer.on_compile_done = function()
+	vim.cmd([[doautocmd User PackerCompileDone]])
+
+	if packer_bootstrap then
+		require("core.plugin_config")
+
+		vim.cmd.MasonInstall("stylua")
+		vim.cmd.MasonInstall("prettier")
+		vim.cmd.MasonInstall("eslint_d")
+	end
+end
