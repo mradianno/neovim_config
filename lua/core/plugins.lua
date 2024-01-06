@@ -57,7 +57,7 @@ packer.on_compile_done = function()
 		require("core.plugin_config")
 
 		vim.cmd.MasonInstall("stylua")
-		vim.cmd.MasonInstall("prettier")
+		vim.cmd.MasonInstall("prettierd")
 		vim.cmd.MasonInstall("eslint_d")
 	end
 end
