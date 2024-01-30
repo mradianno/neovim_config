@@ -7,6 +7,6 @@ vim.opt.cursorline = true
 vim.opt.autoread = true
 vim.opt.shiftround = true
 
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
