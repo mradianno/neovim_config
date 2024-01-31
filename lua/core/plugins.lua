@@ -25,12 +25,10 @@ packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 	use("nvim-telescope/telescope-ui-select.nvim")
-
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 	use("nvimtools/none-ls.nvim")
-
 	use("hrsh7th/nvim-cmp")
 	use({
 		"L3MON4D3/LuaSnip",
@@ -40,8 +38,9 @@ packer.startup(function(use)
 		} },
 	})
 	use("hrsh7th/cmp-nvim-lsp")
-
 	use("akinsho/toggleterm.nvim")
+	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
 
 	if packer_bootstrap then
 		require("packer").sync()
