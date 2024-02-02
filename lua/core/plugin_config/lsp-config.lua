@@ -6,22 +6,24 @@ require("mason-lspconfig").setup({
 		"tsserver",
 		"cssls",
 		"eslint",
-		"grammarly",
 		"html",
 		"jdtls",
 	},
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local lspconfig = require("lspconfig")
-lspconfig.lua_ls.setup({ capabilities = capabilities })
-lspconfig.tsserver.setup({ capabilities = capabilities })
-lspconfig.cssls.setup({ capabilities = capabilities })
-lspconfig.eslint.setup({ capabilities = capabilities })
-lspconfig.grammarly.setup({ capabilities = capabilities })
-lspconfig.html.setup({ capabilities = capabilities })
-lspconfig.jdtls.setup({ capabilities = capabilities })
+local settings = {
+	capabilities = capabilities,
+	root_dir = require("lspconfig.util").root_pattern(".git"),
+}
+
+lspconfig.lua_ls.setup(settings)
+lspconfig.tsserver.setup(settings)
+lspconfig.cssls.setup(settings)
+lspconfig.eslint.setup(settings)
+lspconfig.html.setup(settings)
+lspconfig.jdtls.setup(settings)
 
 --keymaps
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
