@@ -8,5 +8,7 @@ vim.opt.autoread = true
 vim.opt.shiftround = true
 
 vim.wo.relativenumber = true
+vim.wo.number = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
