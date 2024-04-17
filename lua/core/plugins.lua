@@ -41,6 +41,7 @@ packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
+	use("dgagn/diagflow.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
