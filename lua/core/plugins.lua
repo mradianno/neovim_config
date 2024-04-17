@@ -28,7 +28,7 @@ packer.startup(function(use)
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
-	use("nvimtools/none-ls.nvim")
+	use({"nvimtools/none-ls.nvim",requires = {{"nvimtools/none-ls-extras.nvim"}}})
 	use("hrsh7th/nvim-cmp")
 	use({
 		"L3MON4D3/LuaSnip",
