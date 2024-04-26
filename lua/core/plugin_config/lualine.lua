@@ -5,7 +5,10 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = {
-			"filename",
+
+			"windows",
 		},
+		lualine_b = { "diff", "diagnostics" },
+		lualine_c = { { "filename", path = 1 } },
 	},
 })
