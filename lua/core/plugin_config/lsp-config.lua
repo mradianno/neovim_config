@@ -3,7 +3,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
-		"tsserver",
+		"ts_ls",
 		"cssls",
 		"eslint",
 		"html",
@@ -19,7 +19,7 @@ local settings = {
 }
 
 lspconfig.lua_ls.setup(settings)
-lspconfig.tsserver.setup(settings)
+lspconfig["ts_ls"].setup(settings)
 lspconfig.cssls.setup(settings)
 lspconfig.eslint.setup(settings)
 lspconfig.html.setup(settings)
