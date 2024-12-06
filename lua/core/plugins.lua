@@ -42,6 +42,7 @@ packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("tpope/vim-fugitive")
 	use("dgagn/diagflow.nvim")
+	use("nyngwang/murmur.lua")
 
 	if packer_bootstrap then
 		require("packer").sync()

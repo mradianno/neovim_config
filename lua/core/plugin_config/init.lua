@@ -1,3 +1,4 @@
+require("core.plugin_config.murmur")
 require("core.plugin_config.lsp-config")
 require("core.plugin_config.cmp-config")
 require("core.plugin_config.gruvbox")
