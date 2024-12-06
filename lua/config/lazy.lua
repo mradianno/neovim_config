@@ -33,9 +33,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- set gruvbox colorscheme
 vim.o.termguicolors = true
-vim.cmd([[ colorscheme gruvbox ]])
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set({ "n", "v" }, "d", [["_d]])
