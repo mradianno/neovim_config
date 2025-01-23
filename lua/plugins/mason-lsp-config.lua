@@ -53,6 +53,7 @@ return {
 					"eslint",
 					"html",
 					"jdtls",
+					"phpactor",
 				},
 			})
 
@@ -64,11 +65,12 @@ return {
 			}
 
 			lspconfig.lua_ls.setup(settings)
-			lspconfig["ts_ls"].setup(settings)
+			lspconfig.ts_ls.setup(settings)
 			lspconfig.cssls.setup(settings)
 			lspconfig.eslint.setup(settings)
 			lspconfig.html.setup(settings)
 			lspconfig.jdtls.setup(settings)
+			lspconfig.phpactor.setup(settings)
 
 			--keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
