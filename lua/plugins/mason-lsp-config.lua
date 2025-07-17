@@ -71,13 +71,13 @@ return {
 			lspconfig.jdtls.setup(settings)
 
 			--keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-			vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, {})
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'Show type' })
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = '[d]efinition' })
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = '[i]mplementation' })
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = '[r]eferences' })
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = '[a]ctions' })
+			vim.keymap.set("n", "<leader>gtd", vim.lsp.buf.type_definition, { desc = '[t]ype [d]efinition' })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = '[n]ame' })
 		end,
 	},
 }

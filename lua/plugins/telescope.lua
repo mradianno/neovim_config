@@ -18,16 +18,16 @@ return {
 			end
 		end
 
-		vim.keymap.set("n", "<leader><space>", call(builtin.buffers, filesViewSettings), {})
-		vim.keymap.set("n", "<leader>fr", call(builtin.oldfiles, filesViewSettings), {})
-		vim.keymap.set("n", "<leader>ff", call(builtin.find_files, filesViewSettings), {})
-		vim.keymap.set("n", "<leader>sg", call(builtin.live_grep, viewWithContentSettings), {})
-		vim.keymap.set("n", "<leader>sh", call(builtin.help_tags, viewWithContentSettings), {})
+		vim.keymap.set("n", "<leader><space>", call(builtin.buffers, filesViewSettings), { desc = 'Show buffer list' })
+		vim.keymap.set("n", "<leader>fo", call(builtin.oldfiles, filesViewSettings), { desc = '[o]ld files' })
+		vim.keymap.set("n", "<leader>ff", call(builtin.find_files, filesViewSettings), { desc = '[f]iles' })
+		vim.keymap.set("n", "<leader>sg", call(builtin.live_grep, viewWithContentSettings), { desc = '[g]lobal in project' })
+		vim.keymap.set("n", "<leader>sh", call(builtin.help_tags, viewWithContentSettings), { desc = '[h]elp' })
 		vim.keymap.set("n", "<leader>s/", function()
 			builtin.live_grep({
 				grep_open_files = true,
 				prompt_title = "Live Grep in Open Files",
 			})
-		end)
+		end, { desc = 'in opened files' })
 	end,
 }

@@ -1,8 +1,7 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	opts = {},
 	keys = {
-		{ "<leader>hp", ":Gitsigns preview_hunk<CR>" },
-		{ "<leader>hb", ":Gitsigns toggle_current_line_blame<CR>" },
+		{ "<leader>Gp", ":Gitsigns preview_hunk<CR>",              desc = '[p]review' },
+		{ "<leader>Gb", ":Gitsigns toggle_current_line_blame<CR>", desc = '[b]lame' },
 	},
 }

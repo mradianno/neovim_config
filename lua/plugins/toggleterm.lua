@@ -10,8 +10,8 @@ return {
 			terminal:toggle()
 		end
 
-		vim.keymap.set("n", "<leader>t", _toggleNewTerminal, {})
-		vim.keymap.set("n", "<leader>tt", ":ToggleTermToggleAll<CR>", {})
+		vim.keymap.set("n", "<leader>to", _toggleNewTerminal, { desc = '[o]pen new' })
+		vim.keymap.set("n", "<leader>tt", ":ToggleTermToggleAll<CR>", { desc = '[t]oggle existing' })
 		vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], {})
 	end,
 }
