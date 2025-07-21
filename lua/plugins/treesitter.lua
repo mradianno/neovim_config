@@ -17,12 +17,10 @@ return {
 			"gitignore",
 			"query",
 		},
-
 		sync_install = false,
 		auto_install = true,
 		highlight = {
 			enabled = true,
 		},
-		indent = { enable = true },
 	},
 }

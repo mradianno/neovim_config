@@ -31,6 +31,21 @@ return {
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
+				formatting = {
+					format = function(entry, vim_item)
+						vim_item.menu = ({
+							nvim_lsp = "[LSP]",
+							buffer   = "[Buf]",
+							luasnip  = "[LuaSnip]",
+						})[entry.source.name]
+						vim_item.dup = ({
+							nvim_lsp = 0, -- drop LSP duplicates
+							buffer   = 1, -- allow buffer duplicates
+						})[entry.source.name] or 0
+
+						return vim_item
+					end,
+				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
