@@ -5,7 +5,7 @@ return {
 
 		local Terminal = require("toggleterm.terminal").Terminal
 
-		function _toggleNewTerminal()
+		local function _toggleNewTerminal()
 			local terminal = Terminal:new()
 			terminal:toggle()
 		end

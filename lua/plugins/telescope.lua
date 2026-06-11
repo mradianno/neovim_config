@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
+	branch = "0.1.x",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local builtin = require("telescope.builtin")
@@ -12,7 +12,7 @@ return {
 
 		local viewWithContentSettings = { layout_config = { width = 0.99 } }
 
-		function call(callback, settings)
+		local function call(callback, settings)
 			return function()
 				return callback(settings)
 			end

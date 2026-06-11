@@ -4,7 +4,7 @@ return {
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{
 		"L3MON4D3/LuaSnip",
-		dependecies = {
+		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
@@ -39,8 +39,8 @@ return {
 							luasnip  = "[LuaSnip]",
 						})[entry.source.name]
 						vim_item.dup = ({
-							nvim_lsp = 0, -- drop LSP duplicates
-							buffer   = 1, -- allow buffer duplicates
+							nvim_lsp = 0,
+							buffer   = 1,
 						})[entry.source.name] or 0
 
 						return vim_item
@@ -65,34 +65,44 @@ return {
 					"lua_ls",
 					"ts_ls",
 					"cssls",
-					"eslint",
 					"html",
-					"jdtls",
+					"jsonls",
 				},
 			})
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			local settings = {
-				capabilities = capabilities,
-				root_dir = require("lspconfig.util").root_pattern(".git"),
-			}
+			local settings = { capabilities = capabilities }
 
-			lspconfig.lua_ls.setup(settings)
+			lspconfig.lua_ls.setup(vim.tbl_extend("force", settings, {
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						workspace = {
+							checkThirdParty = false,
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
+					},
+				},
+			}))
 			lspconfig["ts_ls"].setup(settings)
 			lspconfig.cssls.setup(settings)
-			lspconfig.eslint.setup(settings)
 			lspconfig.html.setup(settings)
-			lspconfig.jdtls.setup(settings)
+			lspconfig.jsonls.setup(settings)
 
-			--keymaps
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = 'Show type' })
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = '[d]efinition' })
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = '[i]mplementation' })
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = '[r]eferences' })
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = '[a]ctions' })
-			vim.keymap.set("n", "<leader>gtd", vim.lsp.buf.type_definition, { desc = '[t]ype [d]efinition' })
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = '[n]ame' })
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					local opts = { buffer = ev.buf }
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Show type" }))
+					vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "[d]efinition" }))
+					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("force", opts, { desc = "[i]mplementation" }))
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "[r]eferences" }))
+					vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "[a]ctions" }))
+					vim.keymap.set("n", "<leader>gtd", vim.lsp.buf.type_definition, vim.tbl_extend("force", opts, { desc = "[t]ype [d]efinition" }))
+					vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[n]ame" }))
+				end,
+			})
 		end,
 	},
 }

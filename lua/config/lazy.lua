@@ -26,8 +26,8 @@ vim.opt.cursorline = true
 vim.opt.autoread = true
 vim.opt.shiftround = true
 
-vim.wo.relativenumber = true
-vim.wo.number = true
+vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.ignorecase = true

@@ -16,11 +16,12 @@ return {
 			"dockerfile",
 			"gitignore",
 			"query",
+			"json",
 		},
 		sync_install = false,
 		auto_install = true,
 		highlight = {
-			enabled = true,
+			enable = true,
 		},
 	},
 }
